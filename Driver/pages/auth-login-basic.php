@@ -8,7 +8,15 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
   exit;
 }
 //conection to db//
+//conection to db//
 require_once"config.php";
+
+//inserting into db//
+$qr="select * from employees where role='Driver'";
+$quer=mysqli_query($link,$qr);
+  
+if ($quer) {
+  # code...
 
 //inserting into db//
 if(isset($_POST['submit'])){
@@ -17,7 +25,7 @@ if(isset($_POST['submit'])){
   $password=$_POST['password'];
   
 //submiting into database
-  $sql= "select * from customers where username='$username' and password='$password'";
+  $sql= "select * from employees where username='$username' and password='$password' ";
   $query=mysqli_query($link,$sql);
   //executing querry//
   $row=mysqli_fetch_array($query);
@@ -39,6 +47,7 @@ if(isset($_POST['submit'])){
     //echo 'invalid username or password';
   }
   
+}
 }
 ?>
 <!DOCTYPE html>

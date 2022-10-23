@@ -1,7 +1,7 @@
 <?php
 // Initialize the session
 session_start();
- 
+include'config.php';
 
 ?>
 <!DOCTYPE html>
@@ -29,7 +29,7 @@ session_start();
 
   <!-- Icons. Uncomment required icon fonts -->
   <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
-
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <!-- Core CSS -->
   <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
   <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
@@ -98,8 +98,8 @@ session_start();
           </li> -->
           <li class="menu-item">
             <a href="buscomp.php" class="menu-link">
-              <i class=""></i>
-              <div data-i18n="Tables">Bus Companies</div>
+              <i class=" fa fa-user"></i>
+              <div data-i18n="Tables" style="padding-left: 15px;">Details</div>
             </a>
           </li>
           
@@ -111,11 +111,10 @@ session_start();
             </li> -->
           <li class="menu-item">
             <a href="bookings.php" class="menu-link">
-              <i class=""></i>
-              <div data-i18n="Tables">Bookings</div>
+            <i class="fa fa-group" ></i>
+              <div data-i18n="Tables" style="padding-left: 15px;">Passengers</div>
             </a>
           </li>
-
         </ul>
       </aside>
       <!-- / Menu -->
@@ -210,31 +209,46 @@ session_start();
                 <table id="example1" class="table ">
                   <thead>
                     <tr>
-                      <th>First Name</th>
-                      <th>Last Name</th>
-                      <th>Gender</th>
+                      <th>Name</th>
+                      <!-- <th>Last Name</th> -->
+                      <th>Seat</th>
                       <th>Phone</th>
-                      <th>Bus plate</th>
-                      <th>From</th>
+                      <!--th>Bus plate</th-->
+                      <!---th>From</th>
                       <th>To</th>
-                      <th>Amount Paid</th>
+                      <th>Amount Paid</th--->
                       
                     </tr>
                   </thead>
                   <tbody class="table-border-bottom-0">
+                  <?php 
+                  $username=$_SESSION['username'];
+                  $quer=mysqli_query($link,"select name from employees where username='$username' ");
+                  $rom=mysqli_fetch_array($quer);
+                  $name=$rom['name'];
+                  $que=mysqli_query($link,"select plate from bus where driver='$name' ");
+                  $ro=mysqli_fetch_array($que);
+                  $nam=$ro['plate'];
+                  $query=mysqli_query($link,"select * from bookings where bus='$nam'  ");
+                        while($row=mysqli_fetch_array($query))
+
+                        {
+                          ?> 
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
+                      <td><?php echo ($row['name']);?></td>
+                      <td><?php echo ($row['seat']);?></td>
+                      <td><?php echo ($row['phone']);?></td>
+                     
+                        </tr>
+                    <?php 
+                        } ?>
+
 
 
                   </tbody>
+
+
+                 
                 </table>
               </div>
             </div>

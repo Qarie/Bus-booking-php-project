@@ -1,7 +1,7 @@
 <?php
 // Initialize the session
 session_start();
- 
+include'config.php';
 
 ?>
 <!DOCTYPE html>
@@ -21,6 +21,8 @@ session_start();
   <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
 
   <!-- Fonts -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -91,8 +93,8 @@ session_start();
           
           <li class="menu-item">
             <a href="buscomp.php" class="menu-link">
-              <i class=""></i>
-              <div data-i18n="Tables">Bus Companies</div>
+              <i class=" fa fa-user"></i>
+              <div data-i18n="Tables" style="padding-left: 15px;">Details</div>
             </a>
           </li>
           
@@ -104,8 +106,8 @@ session_start();
             </li> -->
           <li class="menu-item">
             <a href="bookings.php" class="menu-link">
-              <i class=""></i>
-              <div data-i18n="Tables"><i class="fa fa-book" aria-hidden="true"></i>Bookings</div>
+            <i class="fa fa-group" ></i>
+              <div data-i18n="Tables" style="padding-left: 15px;">Passengers</div>
             </a>
           </li>
           <!-- Forms -->
@@ -198,80 +200,91 @@ session_start();
           <!-- Content -->
 
           <div class="container-xxl flex-grow-1 container-p-y">
-            <div class="row">
-              <div class="col-lg-8 mb-4 order-0">
-                <div class="card">
-                  <div class="d-flex align-items-end row">
-                    <div class="col-sm-7">
-                      <div class="card-body">
-                        
-                      </div>
-                    </div>
-                    <div class="col-sm-5 text-center text-sm-left">
-                      <div class="card-body pb-0 px-0 px-md-4">
-                        <img src="../assets/img/illustrations/man-with-laptop-light.png" height="140"
-                          alt="View Badge User" data-app-dark-img="illustrations/man-with-laptop-dark.png"
-                          data-app-light-img="illustrations/man-with-laptop-light.png" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-4 order-1">
-                <div class="row">
-                  <div class="col-lg-6 col-md-12 col-6 mb-4">
-                    <div class="card">
-                      <div class="card-body">
-                        <div class="card-title d-flex align-items-start justify-content-between">
-                          <div class="avatar flex-shrink-0">
-                            <img src="../assets/img/icons/unicons/chart-success.png" alt="chart success"
-                              class="rounded" />
-                          </div>
-                          <div class="dropdown">
-                            <button class="btn p-0" type="button" id="cardOpt3" data-bs-toggle="dropdown"
-                              aria-haspopup="true" aria-expanded="false">
-                              <i class="bx bx-dots-vertical-rounded"></i>
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt3">
-                              <a class="dropdown-item" href="buses.php">View More</a>
-                              <!-- <a class="dropdown-item" href="javascript:void(0);">Delete</a> -->
-                            </div>
-                          </div>
-                        </div>
-                        <span class="fw-semibold d-block mb-1">Buses</span>
-                        <h3 class="card-title mb-2"></h3>
-                        <!-- <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +72.80%</small> -->
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-6 col-md-12 col-6 mb-4">
-                    <div class="card">
-                      <div class="card-body">
-                        <div class="card-title d-flex align-items-start justify-content-between">
-                          <div class="avatar flex-shrink-0">
-                            <img src="../assets/img/icons/unicons/wallet-info.png" alt="Credit Card" class="rounded" />
-                          </div>
-                          <div class="dropdown">
-                            <button class="btn p-0" type="button" id="cardOpt6" data-bs-toggle="dropdown"
-                              aria-haspopup="true" aria-expanded="false">
-                              <i class="bx bx-dots-vertical-rounded"></i>
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt6">
-                              <a class="dropdown-item" href="drivers.php">View More</a>
-                              <!-- <a class="dropdown-item" href="javascript:void(0);">Delete</a> -->
-                            </div>
-                          </div>
-                        </div>
-                        <span>Drivers</span>
-                        <h3 class="card-title text-nowrap mb-1"></h3>
-                        <!-- <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +28.42%</small> -->
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <?php
+										$querry=mysqli_query($link, "select * from bookings");
+										$total=mysqli_num_rows($querry);
+										
+										?>
+          <div class="row">
+						<div class="col-md-6 col-xl-3">
+							<div class="card">
+								<div class="card-body">
+									<div class="float-end mt-2">
+										<div class="fa fa-group fa-4x"></div>
+									</div>
+									<div>
+										<h4 class="mb-1 mt-1"><span data-plugin="counterup"><?php echo $total; ?></span></h4>
+										<p class="text-muted mb-0">Passengers </p>
+									</div>
+									<p class="text-muted mt-3 mb-0"><span class="text-success me-1"><i class=""></i></span></p>
+								</div>
+							</div>
+						</div>
+						<!-- end col-->
+						<!-- <div class="col-md-6 col-xl-3">
+							<div class="card">
+								<div class="card-body">
+									<div class="float-end mt-2">
+										<div class="fa fa-group fa-4x"> </div>
+									</div>
+									<div>
+                  <?php
+										// $querry=mysqli_query($link, "select * from employees where role='Driver'");
+										// $total=mysqli_num_rows($querry);
+										
+										?>
+										<h4 class="mb-1 mt-1"><span data-plugin="counterup"><?php echo $total; ?></span></h4>
+										<p class="text-muted mb-0">Drivers</p>
+									</div>
+									<p class="text-muted mt-3 mb-0"><span class="text-danger me-1"><i class="mdi mdi-arrow-down-bold me-1"></i></span></p>
+								</div>
+							</div> -->
+						<!-- </div> -->
+						<!-- end col-->
+						<!-- <div class="col-md-6 col-xl-3">
+							<div class="card">
+								<div class="card-body">
+									<div class="float-end mt-2">
+										<div class="fa fa-industry fa-4x"> </div>
+									</div>
+									<div> -->
+                  <?php
+										// $querry=mysqli_query($link, "select * from company");
+										// $total=mysqli_num_rows($querry);
+										
+										?>
+										<!-- <h4 class="mb-1 mt-1"><span data-plugin="counterup"><?php echo $total; ?></span></h4>
+										<p class="text-muted mb-0">Bus Companies</p>
+									</div>
+									<p class="text-muted mt-3 mb-0"><span class="text-danger me-1"><i class="mdi mdi-arrow-down-bold me-1"></i></span> </p>
+								</div>
+							</div>
+						</div> -->
+						<!-- end col-->
+						<!-- <div class="col-md-6 col-xl-3">
+							<div class="card">
+								<div class="card-body">
+									<div class="float-end mt-2">
+										<div class="fa fa-book fa-4x"></div>
+									</div>
+									<div>
+                  <?php
+                  // $username=$_SESSION['username'];
+									// 	$querry=mysqli_query($link, "select * from bookings where username='$username'");
+									// 	$total=mysqli_num_rows($querry);
+										
+										?>
+										<h4 class="mb-1 mt-1"><span data-plugin="counterup"></span><?php echo $total; ?></h4>
+										<p class="text-muted mb-0">Recent Bookings</p>
+									</div>
+									<p class="text-muted mt-3 mb-0"><span class="text-success me-1"><i class="mdi mdi-arrow-up-bold me-1"></i></span></p>
+								</div> -->
+							<!-- </div> -->
+						<!-- </div> -->
+						<!-- end col-->
+					
               <!-- Total Revenue -->
-              <div class="col-12 col-lg-8 order-2 order-md-3 order-lg-2 mb-4">
+              <!--div class="col-12 col-lg-8 order-2 order-md-3 order-lg-2 mb-4">
                 <div class="card">
                   <div class="row row-bordered g-0">
                     <div class="col-md-8">
@@ -282,7 +295,7 @@ session_start();
                   </div>
                 </div>
               </div>
-              <!--/ Total Revenue -->
+              </ Total Revenue -->
               <div class="col-12 col-md-8 col-lg-4 order-3 order-md-2">
                 <div class="row">
                   <div class="col-6 mb-4">
