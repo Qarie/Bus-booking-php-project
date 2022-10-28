@@ -89,25 +89,62 @@ include'config.php';
             <a href="dashboard.php" class="menu-link">
               <i class="menu-icon tf-icons bx bx-home-circle"></i>
               <div data-i18n="Analytics">Dashboard</div>
-              <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" integrity="sha384-xeJqLiuOvjUBq3iGOjvSQSIlwrpqjSHXpduPd6rQpuiM3f5/ijby8pCsnbu5S81n" crossorigin="anonymous"> 
             </a>
           </li>
 
 
           <!-- Forms & Tables -->
           <!-- <li class="menu-item">
-            <a href="passangers.php" class="menu-link">
-            <i class="fa-solid fa-user" style="color:blue;" ></i>
-            <div data-i18n="Tables" >Passengers</div>
-            
-          </a>
-          </li> -->
+              <a href="passangers.php" class="menu-link">
+                <i class=""></i>
+                <div data-i18n="Tables">Passengers</div>
+              </a>
+            </li> -->
+            <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <i class="menu-icon tf-icons bx bx-detail"></i>
+              <div data-i18n="Form Elements">Bus Companies</div>
+            </a>
+            <ul class="menu-sub">
+              <li class="menu-item">
+                <a href="buscomp.php" class="menu-link">
+                  <div data-i18n="Basic Inputs">Available</div>
+                </a>
+              </li>
+              <!-- <li class="menu-item">
+                <a href="buscomp.php" class="menu-link">
+                  <i class=""></i>
+                  <div data-i18n="Tables">Full</div>
+                </a>
+              </li> -->
+            </ul>
+          </li>
           <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <i class="menu-icon tf-icons bx bx-detail"></i>
+              <div data-i18n="Form Elements">Bookings</div>
+            </a>
+            <ul class="menu-sub">
+              <li class="menu-item">
+                <a href="bookings.php" class="menu-link">
+                  <div data-i18n="Basic Inputs">Previous Bookings</div>
+                </a>
+              </li>
+              <!-- <li class="menu-item">
+                <a href="buscomp.php" class="menu-link">
+                  <i class=""></i>
+                  <div data-i18n="Tables"></div>
+                </a>
+              </li> -->
+            </ul>
+          </li>
+          
+          <!-- <li class="menu-item">
             <a href="buscomp.php" class="menu-link">
               <i class=""></i>
-              <div data-i18n="Tables"><i class="fa fa-bus" aria-hidden="true"></i>Bus Companies</div>
+              <div data-i18n="Tables"><i class="fa fa-bus" aria-hidden="true"></i> </> Bus Companies</div>
             </a>
-          </li>
+          </li> -->
           
           <!-- <li class="menu-item">
               <a href="tables-basic.html" class="menu-link">
@@ -115,12 +152,13 @@ include'config.php';
                 <div data-i18n="Tables">Payments</div>
               </a>
             </li> -->
-          <li class="menu-item">
+          <!-- <li class="menu-item">
             <a href="bookings.php" class="menu-link">
               <i class=""></i>
-              <div data-i18n="Tables"><i class="fa fa-book" aria-hidden="true"></i> </>  Bookings</div>
+              <div data-i18n="Tables"><i class="fa fa-book" aria-hidden="true"></i>  Bookings</div>
             </a>
-          </li>
+          </li> -->
+          <!-- Forms -->
 
         </ul>
       </aside>
@@ -218,24 +256,30 @@ include'config.php';
                     <tr>
                       <th>Name</th>
                       <th>bus</th>
+                      <th>company</th>
                       <th>route</th>
                       <th>amount paid</th>
                       <th>seat</th>
+                      <th>Date </th>
                       
                       
                     </tr>
                   </thead>
                   <tbody class="table-border-bottom-0">
-                  <?php $query=mysqli_query($link,"select * from bookings ");
+                  <?php
+                    $username=$_SESSION['username'];
+                   $query=mysqli_query($link,"select * from bookings where username = '$username'");
                         while($row=mysqli_fetch_array($query))
                         {
                           ?> 
                     <tr>
                       <td><?php echo ($row['name']);?></td>
                       <td><?php echo ($row['bus']);?></td>
+                      <td><?php echo ($row['company']);?></td>
                       <td><?php echo ($row['route']);?></td>
                       <td><?php echo ($row['amount']);?></td>
                       <td><?php echo ($row['seat']);?></td>
+                      <td><?php echo ($row['date']);?></td>
                       <!-- <td>
                       <a href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
                             </a>

@@ -82,54 +82,52 @@ include"config.php";
 
         <ul class="menu-inner py-1">
           <!-- Dashboard -->
-          <li class="menu-item active">
-            <a href="dashboard.php" class="menu-link">
-              <i class="menu-icon tf-icons bx bx-home-circle"></i>
-              <div data-i18n="Analytics">Dashboard</div>
-            </a>
-          </li>
-
-
-          <!-- Forms & Tables -->
-          <!-- <li class="menu-item">
-            <a href="passangers.php" class="menu-link">
-            <i class="fa-solid fa-user" style="color:blue;" ></i>
-            <div data-i18n="Tables" >Passengers</div>
-            
-          </a>
-          </li> -->
-
-
           <li class="menu-item">
-            <a href="buscomp.php" class="menu-link">
-              <i class=""></i>
-              <div data-i18n="Tables"><i class="fa fa-bus" aria-hidden="true"></i></></> Bus Companies</div>
-            </a>
-          </li>
-          
-          <!-- <li class="menu-item">
-              <a href="tables-basic.html" class="menu-link">
-                <i class=""></i>
-                <div data-i18n="Tables">Payments</div>
+              <a href="dashboard.php" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div data-i18n="Analytics">Dashboard</div>
               </a>
-            </li> -->
-          <li class="menu-item">
-            <a href="bookings.php" class="menu-link">
-              <i class=""></i>
-              <div data-i18n="Tables"><i class="fa fa-book" aria-hidden="true"></i></>  Bookings</div>
-            </a>
-          </li>
-          <!-- <li class="menu-item">
-            <a href="tables-basic.html" class="menu-link">
-              <i class="fa-solid fa-user" style="color:blue;" ></i>
-              <div data-i18n="Tables">Payments</div>
-            </a>
-          </li> -->
-          
-          <!-- Forms -->
+            </li>
 
-
-        </ul>
+           
+            <li class="menu-item active open">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-detail"></i>
+                <div data-i18n="Form Elements">Bus Companies</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item active">
+                  <a href="buscomp.php" class="menu-link">
+                    <div data-i18n="Basic Inputs">Available</div>
+                  </a>
+                </li>
+                <!-- <li class="menu-item">
+                  <a href="forms-input-groups.html" class="menu-link">
+                    <div data-i18n="Input groups">Input groups</div>
+                  </a>
+                </li> -->
+              </ul>
+            </li>
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-detail"></i>
+                <div data-i18n="Form Layouts">Bookings</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="bookings.php" class="menu-link">
+                    <div data-i18n="Vertical Form">Previous Bookings</div>
+                  </a>
+                </li>
+                <!-- <li class="menu-item">
+                  <a href="form-layouts-horizontal.html" class="menu-link">
+                    <div data-i18n="Horizontal Form">Horizontal Form</div>
+                  </a>
+                </li> -->
+              </ul>
+            </li>
+            
+          </ul>
       </aside>
       <!-- / Menu -->
 
@@ -228,7 +226,8 @@ include"config.php";
                   <tbody class="table-border-bottom-0">
                   <?php $query=mysqli_query($link,"select * from company ");
                         while($row=mysqli_fetch_array($query))
-                        {
+
+                        {$name=$row['name'];
                           ?> 
                     <tr>
                       <td><?php echo ($row['id']);?></td>
@@ -236,7 +235,7 @@ include"config.php";
                       
                       <td>
                         
-                      <a href="buses.php" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
+                      <a href="buses.php?name=<?php echo $name;?>" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
                               Select</a>
                       </td>
                       

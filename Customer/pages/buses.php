@@ -207,7 +207,9 @@ include"config.php";
 
 
           <div class="container-xxl flex-grow-1 container-p-y">
-            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span> Available Buses</h4>
+            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span> Available Buses in <?php
+            $company=$_GET['name']; $query=mysqli_query($link,"select * from company where name='$company' ");$row=mysqli_fetch_array($query);
+            echo $name=$row['name'];?></h4>
 
 
             <!-- Basic Bootstrap Table -->
@@ -220,7 +222,7 @@ include"config.php";
                   <thead>
                     
                     <tr>
-                      <th>id</th>
+                      
                       <th>Name</th>
                       <th>Driver</th>
                       <th>Plate</th>
@@ -230,7 +232,9 @@ include"config.php";
                     </tr>
                   </thead>
                   <tbody class="table-border-bottom-0">
-                  <?php $query=mysqli_query($link,"select * from bus ");
+                  <?php 
+                  $company=$_GET['name'];
+                  $query=mysqli_query($link,"select * from bus where company='$company'");
 
 
 
@@ -240,7 +244,7 @@ include"config.php";
                         {
                           ?> 
                     <tr>
-                      <td><?php echo ($row['id']);?></td>
+                      
                       <td><?php echo ($row['name']);?></td>
                       <td><?php echo ($row['driver']);?></td>
                       <td><?php echo ($row['plate']);?></td>

@@ -91,14 +91,51 @@ include"config.php";
                 <div data-i18n="Tables">Passengers</div>
               </a>
             </li> -->
-         
-          
+            <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <!-- <i class="menu-icon tf-icons bx bx-detail"></i> -->
+              <div data-i18n="Form Elements">Bus Companies</div>
+            </a>
+            <ul class="menu-sub">
+              <li class="menu-item">
+                <a href="buscomp.php" class="menu-link">
+                  <div data-i18n="Basic Inputs">Available</div>
+                </a>
+              </li>
+              <!-- <li class="menu-item">
+                <a href="buscomp.php" class="menu-link">
+                  <i class=""></i>
+                  <div data-i18n="Tables">Full</div>
+                </a>
+              </li> -->
+            </ul>
+          </li>
           <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <i class="menu-icon tf-icons bx bx-detail"></i>
+              <div data-i18n="Form Elements">Bookings</div>
+            </a>
+            <ul class="menu-sub">
+              <li class="menu-item">
+                <a href="bookings.php" class="menu-link">
+                  <div data-i18n="Basic Inputs">Previous Bookings</div>
+                </a>
+              </li>
+              <!-- <li class="menu-item">
+                <a href="buscomp.php" class="menu-link">
+                  <i class=""></i>
+                  <div data-i18n="Tables"></div>
+                </a>
+              </li> -->
+            </ul>
+          </li>
+          
+          <!-- <li class="menu-item">
             <a href="buscomp.php" class="menu-link">
               <i class=""></i>
               <div data-i18n="Tables"><i class="fa fa-bus" aria-hidden="true"></i> </> Bus Companies</div>
             </a>
-          </li>
+          </li> -->
           
           <!-- <li class="menu-item">
               <a href="tables-basic.html" class="menu-link">
@@ -106,12 +143,12 @@ include"config.php";
                 <div data-i18n="Tables">Payments</div>
               </a>
             </li> -->
-          <li class="menu-item">
+          <!-- <li class="menu-item">
             <a href="bookings.php" class="menu-link">
               <i class=""></i>
               <div data-i18n="Tables"><i class="fa fa-book" aria-hidden="true"></i>  Bookings</div>
             </a>
-          </li>
+          </li> -->
           <!-- Forms -->
 
         </ul>
@@ -203,63 +240,92 @@ include"config.php";
           <!-- Content -->
 
           <div class="container-xxl flex-grow-1 container-p-y">
-            <div class="row">
-              
-              
-              <div class="col-lg-4 col-md-4 order-1">
-                <div class="row">
-                  <div class="col-lg-6 col-md-12 col-6 mb-4">
-                  <div class="card">
-								<div class="card-body">
-									<div class="float-end mt-2">
-										<i class="fas fa-users fa-3x"></i>
-										<?php
+          <?php
 										$querry=mysqli_query($link, "select * from bus");
 										$total=mysqli_num_rows($querry);
 										
 										?>
+          <div class="row">
+						<div class="col-md-6 col-xl-3">
+							<div class="card">
+								<div class="card-body">
+									<div class="float-end mt-2">
+										<div class="fa fa-bus fa-4x"></div>
 									</div>
 									<div>
 										<h4 class="mb-1 mt-1"><span data-plugin="counterup"><?php echo $total; ?></span></h4>
-										<p class="text-muted mb-0"><i class="fa fa-bus" aria-hidden="true"></i> </>  Buses</p>
+										<p class="text-muted mb-0">Buses</p>
 									</div>
-									
+									<p class="text-muted mt-3 mb-0"><span class="text-success me-1"><i class=""></i></span></p>
 								</div>
 							</div>
-                  </div>
-                  <div class="col-lg-6 col-md-12 col-6 mb-4">
-                  <div class="card">
+						</div>
+						<!-- end col-->
+						<div class="col-md-6 col-xl-3">
+							<div class="card">
 								<div class="card-body">
 									<div class="float-end mt-2">
-										<i class="fas fa-users fa-3x"></i>
-										<?php
+										<div class="fa fa-group fa-4x"> </div>
+									</div>
+									<div>
+                  <?php
 										$querry=mysqli_query($link, "select * from employees where role='Driver'");
 										$total=mysqli_num_rows($querry);
 										
 										?>
-									</div>
-									<div>
 										<h4 class="mb-1 mt-1"><span data-plugin="counterup"><?php echo $total; ?></span></h4>
-										<p class="text-muted mb-0"><i class="fa fa-user" aria-hidden="true"></i> </>  Drivers</p>
+										<p class="text-muted mb-0">Drivers</p>
 									</div>
-									
+									<p class="text-muted mt-3 mb-0"><span class="text-danger me-1"><i class="mdi mdi-arrow-down-bold me-1"></i></span></p>
 								</div>
 							</div>
-                  </div>
-                </div>
-              </div>
+						</div>
+						<!-- end col-->
+						<div class="col-md-6 col-xl-3">
+							<div class="card">
+								<div class="card-body">
+									<div class="float-end mt-2">
+										<div class="fa fa-industry fa-4x"> </div>
+									</div>
+									<div>
+                  <?php
+										$querry=mysqli_query($link, "select * from company");
+										$total=mysqli_num_rows($querry);
+										
+										?>
+										<h4 class="mb-1 mt-1"><span data-plugin="counterup"><?php echo $total; ?></span></h4>
+										<p class="text-muted mb-0">Bus Companies</p>
+									</div>
+									<p class="text-muted mt-3 mb-0"><span class="text-danger me-1"><i class="mdi mdi-arrow-down-bold me-1"></i></span> </p>
+								</div>
+							</div>
+						</div>
+						<!-- end col-->
+						<div class="col-md-6 col-xl-3">
+							<div class="card">
+								<div class="card-body">
+									<div class="float-end mt-2">
+										<div class="fa fa-book fa-4x"></div>
+									</div>
+									<div>
+                  <?php
+                  $username=$_SESSION['username'];
+										$querry=mysqli_query($link, "select * from bookings where username='$username'");
+										$total=mysqli_num_rows($querry);
+										
+										?>
+										<h4 class="mb-1 mt-1"><span data-plugin="counterup"></span><?php echo $total; ?></h4>
+										<p class="text-muted mb-0">Recent Bookings</p>
+									</div>
+									<p class="text-muted mt-3 mb-0"><span class="text-success me-1"><i class="mdi mdi-arrow-up-bold me-1"></i></span></p>
+								</div>
+							</div>
+						</div>
+						<!-- end col-->
+					</div>
+            
               <!-- Total Revenue -->
-              <div class="col-12 col-lg-8 order-2 order-md-3 order-lg-2 mb-4">
-                <div class="card">
-                  <div class="row row-bordered g-0">
-                    <div class="col-md-8">
-                      <h5 class="card-header m-0 me-2 pb-3"><i class="fa fa-bus" aria-hidden="true"></i> </>  Bus Companies</h5>
-                      
-                    </div>
-                    
-                  </div>
-                </div>
-              </div>
+              
               <!--/ Total Revenue -->
               <div class="col-12 col-md-8 col-lg-4 order-3 order-md-2">
                 <div class="row">
@@ -276,20 +342,7 @@ include"config.php";
         <!-- / Content -->
 
         <!-- Footer -->
-        <footer class="content-footer footer bg-footer-theme">
-          <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-            <div class="mb-2 mb-md-0">
-              ©
-              <script>
-                document.write(new Date().getFullYear());
-              </script>
-              fast travels ltd
-
-            </div>
-
-          </div>
-        </footer>
-        <!-- / Footer -->
+        <!--  -->
         <div class="content-backdrop fade"></div>
       </div>
       <!-- Content wrapper -->

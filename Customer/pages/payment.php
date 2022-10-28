@@ -1,4 +1,15 @@
+<?php
 
+session_start();
+include"config.php";
+//require_once'../FPDF/fpdf.php';
+$seat=$_GET['seat'];
+$query=mysqli_query($link,"select * from bookings where seat= $seat ");
+$row=mysqli_fetch_assoc($query);
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="../assets/"
   data-template="vertical-menu-template-free">
@@ -15,8 +26,11 @@
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
   <script src="https://kit.fontawesome.com/d8cfbe84b9.js" crossorigin="anonymous"></script>
-    <!-- Bootstrap CSS -->
-    
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -56,8 +70,6 @@
   <link rel="stylesheet" href="../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <style>
-    
-
     .wig {
       width: 450px;
       margin: auto;
@@ -139,7 +151,7 @@
       }
     }
   </style>
-  
+
 </head>
 
 <body>
@@ -179,27 +191,64 @@
                 <div data-i18n="Tables">Passengers</div>
               </a>
             </li> -->
-
-
+            <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <i class="menu-icon tf-icons bx bx-detail"></i>
+              <div data-i18n="Form Elements">Bus Companies</div>
+            </a>
+            <ul class="menu-sub">
+              <li class="menu-item">
+                <a href="buscomp.php" class="menu-link">
+                  <div data-i18n="Basic Inputs">Available</div>
+                </a>
+              </li>
+              <!-- <li class="menu-item">
+                <a href="buscomp.php" class="menu-link">
+                  <i class=""></i>
+                  <div data-i18n="Tables">Full</div>
+                </a>
+              </li> -->
+            </ul>
+          </li>
           <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <i class="menu-icon tf-icons bx bx-detail"></i>
+              <div data-i18n="Form Elements">Bookings</div>
+            </a>
+            <ul class="menu-sub">
+              <li class="menu-item">
+                <a href="bookings.php" class="menu-link">
+                  <div data-i18n="Basic Inputs">Previous Bookings</div>
+                </a>
+              </li>
+              <!-- <li class="menu-item">
+                <a href="buscomp.php" class="menu-link">
+                  <i class=""></i>
+                  <div data-i18n="Tables"></div>
+                </a>
+              </li> -->
+            </ul>
+          </li>
+          
+          <!-- <li class="menu-item">
             <a href="buscomp.php" class="menu-link">
               <i class=""></i>
-              <div data-i18n="Tables">Bus Companies</div>
+              <div data-i18n="Tables"><i class="fa fa-bus" aria-hidden="true"></i> </> Bus Companies</div>
             </a>
-          </li>
-
+          </li> -->
+          
           <!-- <li class="menu-item">
               <a href="tables-basic.html" class="menu-link">
                 <i class=""></i>
                 <div data-i18n="Tables">Payments</div>
               </a>
             </li> -->
-          <li class="menu-item">
+          <!-- <li class="menu-item">
             <a href="bookings.php" class="menu-link">
               <i class=""></i>
-              <div data-i18n="Tables">Bookings</div>
+              <div data-i18n="Tables"><i class="fa fa-book" aria-hidden="true"></i>  Bookings</div>
             </a>
-          </li>
+          </li> -->
           <!-- Forms -->
 
         </ul>
@@ -279,94 +328,128 @@
         <!-- <div class="container-xxl flex-grow-1 container-p-y"> -->
 
 
-        
-        
-          
-              
-                 
-                        
-                    
-		<div class="wig">
-			<table>
-				<tr class="top">
-					<td colspan="2">
-						<table>
-							<tr>
-								<td class="title">
-									<img src="../assets/img/logo.png" alt="Company logo" />
-								</td>
 
-								<td>
-									Reciept: <br />
-									Created: <br />
-									Due: 
-								</td>
-							</tr>
-						</table>
-					</td>
-				</tr>
 
-				<tr class="information">
-					<td colspan="2">
-						<table>
-							<tr>
-								<td>
-									Fast Travels<br />
-									Kampala<br />
-									
-								</td>
 
-								<td>
-									Name: <br />
-									Tel: <br />
-									email: 
-								</td>
-							</tr>
-						</table>
-					</td>
-				</tr>
 
-				<tr class="heading">
-					<td>Amount paid</td>
+        <!-- <div>
+        <form action="pdf.php" method="POST">
+          <button type="submit" name="btn_pdf" class="btn btn-sucess" style="float:right; padding:20px;">Download</button>
+        </form>
+      </div>             -->
 
-					<td>UGX</td>
-				</tr>
 
-				<tr class="details">
-					<td></td>
+        <div class="wig">
 
-					<td>1000</td>
-				</tr>
 
-				<tr class="heading">
-					<td>Details</td>
+          <table>
+            <tr class="top">
+              <td colspan="2">
+                <table>
+                  <tr>
+                    <td class="title">
+                      <img src="../assets/img/logo.png" alt="Company logo" />
+                    </td>
 
-					<td></td>
-				</tr>
-        <tr class="item">
-					<td>Bus</td>
+                    <td>
+                      Reciept:
+                      <?php echo $row['id']; ?><br />
+                      Created:
+                      <?php echo $row['date']; ?><br />
 
-					<td></td>
-				</tr>
-				<tr class="item">
-					<td>Seat</td>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
 
-					<td></td>
-				</tr>
+            <tr class="information">
+              <td colspan="2">
 
-				<tr class="item">
-					<td>Arrival at terminal</td>
+                <table>
+                  <tr>
+                    <td>
+                      Fast Travels<br />
+                      Kampala<br />
 
-					<td></td>
-				</tr>
-        
-        
-			</table>
-		</div>
-                 
+                    </td>
+
+                    <td>
+                      Name:
+                      <?php echo $row['name']; ?><br />
+                      Tel:
+                      <?php echo $row['phone']; ?><br />
+                      Email:
+                      <?php echo $row['email']; ?>
+
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr class="heading">
+              <td>Amount paid</td>
+
+              <td>UGX</td>
+            </tr>
+
+            <tr class="details">
+              <td></td>
+
+              <td>
+                <?php echo $row['amount']; ?>
+              </td>
+            </tr>
+
+            <tr class="heading">
+              <td>Details</td>
+
+              <td></td>
+            </tr>
+            <tr class="item">
+              <td>Company</td>
+
+              <td>
+                <?php echo $row['company']; ?>
+              </td>
+            </tr>
+            <tr class="item">
+              <td>Bus</td>
+
+              <td>
+                <?php echo $row['bus']; ?>
+              </td>
+            </tr>
+            <tr class="item">
+              <td>Seat</td>
+
+              <td>
+                <?php echo $row['seat']; ?>
+              </td>
+            </tr>
+
+            <tr class="item">
+              <td>Route</td>
+
+              <td>
+                <?php echo $row['route']; ?>
+              </td>
+            </tr>
+
+
+          </table>
+          <div class="d-print-none mt-4">
+            <div class="float-end">
+              <a href="javascript:window.print()" class="btn btn-primary waves-effect waves-light me-1"><i
+                  class="fa fa-print"></i></a>
+
             </div>
-            <script src="js/form.js"></script>
-           
+          </div>
+
+        </div>
+
+        <script src="js/form.js"></script>
 
 
 
@@ -376,8 +459,9 @@
 
 
 
-            <!-- Footer -->
-            <!-- <footer class="content-footer footer bg-footer-theme">
+
+        <!-- Footer -->
+        <!-- <footer class="content-footer footer bg-footer-theme">
               <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
                 <div class="mb-2 mb-md-0">
                   ©
@@ -390,131 +474,131 @@
 
               </div>
             </footer> -->
-            <!-- / Footer -->
+        <!-- / Footer -->
 
-            <div class="content-backdrop fade"></div>
-          </div>
-          <!-- Content wrapper -->
-        </div>
-        <!-- / Layout page -->
+        <div class="content-backdrop fade"></div>
       </div>
-
-      <!-- Overlay -->
-      <div class="layout-overlay layout-menu-toggle"></div>
+      <!-- Content wrapper -->
     </div>
-    <!-- / Layout wrapper -->
+    <!-- / Layout page -->
+  </div>
+
+  <!-- Overlay -->
+  <div class="layout-overlay layout-menu-toggle"></div>
+  </div>
+  <!-- / Layout wrapper -->
 
 
 
-    <!-- Core JS -->
-    <!-- build:js assets/vendor/js/core.js -->
-    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="../assets/vendor/libs/popper/popper.js"></script>
-    <script src="../assets/vendor/js/bootstrap.js"></script>
-    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+  <!-- Core JS -->
+  <!-- build:js assets/vendor/js/core.js -->
+  <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+  <script src="../assets/vendor/libs/popper/popper.js"></script>
+  <script src="../assets/vendor/js/bootstrap.js"></script>
+  <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
 
-    <script src="../assets/vendor/js/menu.js"></script>
-    <!-- endbuild -->
+  <script src="../assets/vendor/js/menu.js"></script>
+  <!-- endbuild -->
 
-    <!-- Vendors JS -->
-    <script src="../assets/vendor/libs/apex-charts/apexcharts.js"></script>
+  <!-- Vendors JS -->
+  <script src="../assets/vendor/libs/apex-charts/apexcharts.js"></script>
 
-    <!-- Main JS -->
-    <script src="../assets/js/main.js"></script>
+  <!-- Main JS -->
+  <script src="../assets/js/main.js"></script>
 
-    <!-- Page JS -->
-    <script src="../assets/js/dashboards-analytics.js"></script>
+  <!-- Page JS -->
+  <script src="../assets/js/dashboards-analytics.js"></script>
 
-    <!-- Place this tag in your head or just before your close body tag. -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <!-- jQuery -->
-    <script src="../plugins/jquery/jquery.min.js"></script>
-    <!-- jQuery UI 1.11.4 -->
-    <script src="../plugins/jquery-ui/jquery-ui.min.js"></script>
-    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-    <script>
-      $.widget.bridge('uibutton', $.ui.button)
-    </script>
-    <!-- Bootstrap 4 -->
-    <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- ChartJS -->
-    <script src="../plugins/chart.js/Chart.min.js"></script>
-    <!-- Sparkline -->
-    <script src="../plugins/sparklines/sparkline.js"></script>
-    <!-- JQVMap -->
-    <script src="../plugins/jqvmap/jquery.vmap.min.js"></script>
-    <script src="../plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-    <!-- jQuery Knob Chart -->
-    <script src="../plugins/jquery-knob/jquery.knob.min.js"></script>
-    <!-- daterangepicker -->
-    <script src="../plugins/moment/moment.min.js"></script>
-    <script src="../plugins/daterangepicker/daterangepicker.js"></script>
-    <!-- Tempusdominus Bootstrap 4 -->
-    <script src="../plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-    <!-- Summernote -->
-    <script src="../plugins/summernote/summernote-bs4.min.js"></script>
-    <!-- overlayScrollbars -->
-    <script src="../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="dist/js/adminlte.js"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="dist/js/pages/dashboard.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="dist/js/demo.js"></script>
-    <!-- DataTables -->
-    <script src="../plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <script src="../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- jQuery -->
+  <script src="../plugins/jquery/jquery.min.js"></script>
+  <!-- jQuery UI 1.11.4 -->
+  <script src="../plugins/jquery-ui/jquery-ui.min.js"></script>
+  <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+  <script>
+    $.widget.bridge('uibutton', $.ui.button)
+  </script>
+  <!-- Bootstrap 4 -->
+  <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- ChartJS -->
+  <script src="../plugins/chart.js/Chart.min.js"></script>
+  <!-- Sparkline -->
+  <script src="../plugins/sparklines/sparkline.js"></script>
+  <!-- JQVMap -->
+  <script src="../plugins/jqvmap/jquery.vmap.min.js"></script>
+  <script src="../plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+  <!-- jQuery Knob Chart -->
+  <script src="../plugins/jquery-knob/jquery.knob.min.js"></script>
+  <!-- daterangepicker -->
+  <script src="../plugins/moment/moment.min.js"></script>
+  <script src="../plugins/daterangepicker/daterangepicker.js"></script>
+  <!-- Tempusdominus Bootstrap 4 -->
+  <script src="../plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+  <!-- Summernote -->
+  <script src="../plugins/summernote/summernote-bs4.min.js"></script>
+  <!-- overlayScrollbars -->
+  <script src="../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="dist/js/adminlte.js"></script>
+  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+  <script src="dist/js/pages/dashboard.js"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="dist/js/demo.js"></script>
+  <!-- DataTables -->
+  <script src="../plugins/datatables/jquery.dataTables.min.js"></script>
+  <script src="../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+  <script src="../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+  <script src="../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 
-    <script>
-      $(function () {
-        $("#example1").DataTable({
-          "responsive": true,
-          "autoWidth": false,
-        });
-        $('#example2').DataTable({
-          "paging": true,
-          "lengthChange": false,
-          "searching": false,
-          "ordering": true,
-          "info": true,
-          "autoWidth": false,
-          "responsive": true,
+  <script>
+    $(function () {
+      $("#example1").DataTable({
+        "responsive": true,
+        "autoWidth": false,
+      });
+      $('#example2').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
+      });
+    });
+  </script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $(document).on('click', '.edit_data', function () {
+        var edit_id = $(this).attr('id');
+        $.ajax({
+          url: "add_company.php",
+          type: "post",
+          data: { edit_id: edit_id },
+          success: function (data) {
+            $("#info_update").html(data);
+            $("#editData").modal('show');
+          }
         });
       });
-    </script>
+    });
+  </script>
+  <script>
 
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $(document).on('click', '.edit_data', function () {
-          var edit_id = $(this).attr('id');
-          $.ajax({
-            url: "add_company.php",
-            type: "post",
-            data: { edit_id: edit_id },
-            success: function (data) {
-              $("#info_update").html(data);
-              $("#editData").modal('show');
-            }
-          });
-        });
-      });
-    </script>
-    <script>
 
-     
-    </script>
-    <!-- JQUERY -->
-		<script src="js/jquery-3.3.1.min.js"></script>
+  </script>
+  <!-- JQUERY -->
+  <script src="js/jquery-3.3.1.min.js"></script>
 
-<!-- JQUERY STEP -->
-<script src="js/jquery.steps.js"></script>
-<script src="js/main.js"></script>
-<script src="assets/scripts/admin_booking.js"></script>
-           
+  <!-- JQUERY STEP -->
+  <script src="js/jquery.steps.js"></script>
+  <script src="js/main.js"></script>
+  <script src="assets/scripts/admin_booking.js"></script>
 
-<!-- Template created and distributed by Colorlib -->
+
+  <!-- Template created and distributed by Colorlib -->
 </body>
 
 </html>
