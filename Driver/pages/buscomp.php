@@ -2,7 +2,7 @@
 // Initialize the session
 session_start();
  
-
+include'config.php';
 ?>
 <!DOCTYPE html>
 <html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="../assets/"
@@ -21,6 +21,7 @@ session_start();
   <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
 
   <!-- Fonts -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -100,8 +101,8 @@ session_start();
 
           <li class="menu-item">
             <a href="buscomp.php" class="menu-link">
-              <i class=""></i>
-              <div data-i18n="Tables">Bus Companies</div>
+              <i class=" fa fa-user"></i>
+              <div data-i18n="Tables" style="padding-left: 15px;">Details</div>
             </a>
           </li>
           
@@ -113,9 +114,10 @@ session_start();
             </li> -->
           <li class="menu-item">
             <a href="bookings.php" class="menu-link">
-              <i class=""></i>
-              <div data-i18n="Tables">Bookings</div>
+            <i class="fa fa-group" ></i>
+              <div data-i18n="Tables" style="padding-left: 15px;">Passengers</div>
             </a>
+          </li>
           </li>
           <!-- <li class="menu-item">
             <a href="tables-basic.html" class="menu-link">
@@ -206,7 +208,7 @@ session_start();
 
 
           <div class="container-xxl flex-grow-1 container-p-y">
-            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span> Bus Companies</h4>
+            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span> Details</h4>
 
 
             <!-- Basic Bootstrap Table -->
@@ -217,25 +219,34 @@ session_start();
                 <table id="example1" class="table ">
                   <thead>
                     <tr>
-                      <th>id</th>
-                      <th>Name</th>
-                      <th>Action</th>
+                      <th>driver</th>
+                    <th>Bus company</th>
+                      <th>Bus Plate</th>
+                      <th>Bus model</th>
+                      <!--th>Route</th-->
                     </tr>
                   </thead>
                   <tbody class="table-border-bottom-0">
+                  <?php 
+                  $username=$_SESSION['username'];
+                  $quer=mysqli_query($link,"select name from employees where username='$username' ");
+                  $rom=mysqli_fetch_array($quer);
+                  $name=$rom['name'];
+                  $query=mysqli_query($link,"select * from bus where driver='$name'");
+                        while($row=mysqli_fetch_array($query))
+
+                        {
+                          ?> 
                     <tr>
-                      <td></td>
-                      <td></td>
-                      
-                      <td>
-                        
-                      <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
-                              Select</a>
-                      </td>
+                    <td><?php echo ($row['driver']);?></td>
+                    <td><?php echo ($row['company']);?></td>
+                    <td><?php echo ($row['plate']);?></td>
+                    <td><?php echo ($row['name']);?></td>
                     </tr>
 
 
                   </tbody>
+                  <?php }?>
                 </table>
               </div>
             </div>

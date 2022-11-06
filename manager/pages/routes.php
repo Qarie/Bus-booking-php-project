@@ -46,7 +46,7 @@ include'config.php';
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"> -->
 
   <!-- Page CSS -->
-
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <!-- Helpers -->
   <script src="../assets/vendor/js/helpers.js"></script>
   <script src="https://kit.fontawesome.com/1c867941a3.js" crossorigin="anonymous"></script>
@@ -86,59 +86,55 @@ include'config.php';
               <div data-i18n="Analytics">Dashboard</div>
             </a>
           </li>
-
           <li class="menu-item">
             <a href="add_employees.php" class="menu-link">
-              <i class="fa-solid fa-user" style="color:blue;" ></i>
-              <div data-i18n="Tables">Add Employees</div>
+              <i class="fa fa-user"  ></i>
+              <div data-i18n="Tables" style="padding-left: 20px;">Add Employee</div>
             </a>
           </li>
+
+
           <!-- Forms & Tables -->
           <!-- <li class="menu-item">
-              <a href="passangers.php" class="menu-link">
-                <i class=""></i>
-                <div data-i18n="Tables">Passengers</div>
-              </a>
-            </li> -->
+            <a href="passangers.php" class="menu-link">
+            <i class="fa-solid fa-user" style="color:blue;" ></i>
+            <div data-i18n="Tables" >Passengers</div>
+            
+          </a>
+          </li> -->
           
           <li class="menu-item">
             <a href="drivers.php" class="menu-link">
-              <i class=""></i>
-              <div data-i18n="Tables">Drivers</div>
+              <i class="fa fa-user"  ></i>
+              <div data-i18n="Tables" style="padding-left: 20px;">Drivers</div>
             </a>
           </li>
-          
-          <!-- <li class="menu-item">
-              <a href="tables-basic.html" class="menu-link">
-                <i class=""></i>
-                <div data-i18n="Tables">Payments</div>
-              </a>
-            </li> -->
-            <li class="menu-item">
+          <li class="menu-item">
             <a href="Buses.php" class="menu-link">
-              <i class="fa-solid fa-user" style="color:blue;" ></i>
-              <div data-i18n="Tables">Buses</div>
+              <i class="fa fa-bus"  ></i>
+              <div data-i18n="Tables" style="padding-left: 20px;">Buses</div>
             </a>
           </li>
           <li class="menu-item">
             <a href="routem.php" class="menu-link">
-              <i class="fa-solid fa-user" style="color:blue;" ></i>
-              <div data-i18n="Tables">Route Managers</div>
+              <i class="fa fa-user"  ></i>
+              <div data-i18n="Tables" style="padding-left: 20px;">Route Managers</div>
             </a>
           </li>
-            <li class="menu-item">
+          <li class="menu-item">
             <a href="routes.php" class="menu-link">
-              <i class="fa-solid fa-user" style="color:blue;" ></i>
-              <div data-i18n="Tables">Routes</div>
+              <i class="fa fa-road      "  ></i>
+              <div data-i18n="Tables" style="padding-left: 20px;">Routes</div>
             </a>
           </li>
           <li class="menu-item">
             <a href="bookings.php" class="menu-link">
-              <i class=""></i>
-              <div data-i18n="Tables">Bookings</div>
+              <i class="fa fa-book" ></i>
+              <div data-i18n="Tables" style="padding-left: 20px;"></i>Bookings</div>
             </a>
           </li>
           <!-- Forms -->
+
 
         </ul>
       </aside>

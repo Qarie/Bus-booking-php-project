@@ -33,7 +33,7 @@ session_start();
 
   <!-- Icons. Uncomment required icon fonts -->
   <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
-
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <!-- Core CSS -->
   <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
   <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
@@ -88,8 +88,8 @@ session_start();
           </li>
           <li class="menu-item">
             <a href="add_employees.php" class="menu-link">
-              <i class="fa-solid fa-user" style="color:blue;" ></i>
-              <div data-i18n="Tables">Add Employees</div>
+              <i class="fa fa-user"  ></i>
+              <div data-i18n="Tables" style="padding-left: 20px;">Add Employee</div>
             </a>
           </li>
 
@@ -105,32 +105,32 @@ session_start();
           
           <li class="menu-item">
             <a href="drivers.php" class="menu-link">
-              <i class="fa-solid fa-user" style="color:blue;" ></i>
-              <div data-i18n="Tables">Drivers</div>
+              <i class="fa fa-user"  ></i>
+              <div data-i18n="Tables" style="padding-left: 20px;">Drivers</div>
             </a>
           </li>
           <li class="menu-item">
             <a href="Buses.php" class="menu-link">
-              <i class="fa-solid fa-user" style="color:blue;" ></i>
-              <div data-i18n="Tables">Buses</div>
+              <i class="fa fa-bus"  ></i>
+              <div data-i18n="Tables" style="padding-left: 20px;">Buses</div>
             </a>
           </li>
           <li class="menu-item">
             <a href="routem.php" class="menu-link">
-              <i class="fa-solid fa-user" style="color:blue;" ></i>
-              <div data-i18n="Tables">Route Managers</div>
+              <i class="fa fa-user"  ></i>
+              <div data-i18n="Tables" style="padding-left: 20px;">Route Managers</div>
             </a>
           </li>
           <li class="menu-item">
             <a href="routes.php" class="menu-link">
-              <i class="fa-solid fa-user" style="color:blue;" ></i>
-              <div data-i18n="Tables">Routes</div>
+              <i class="fa fa-road      "  ></i>
+              <div data-i18n="Tables" style="padding-left: 20px;">Routes</div>
             </a>
           </li>
           <li class="menu-item">
             <a href="bookings.php" class="menu-link">
-              <i class="fa-solid fa-edit" style="color:blue;" ></i>
-              <div data-i18n="Tables"><i class="fa fa-book" aria-hidden="true"></i>Bookings</div>
+              <i class="fa fa-book" ></i>
+              <div data-i18n="Tables" style="padding-left: 20px;"></i>Bookings</div>
             </a>
           </li>
           <!-- Forms -->
@@ -235,12 +235,18 @@ session_start();
                       <th>route</th>
                       <th>amount paid</th>
                       <th>seat</th>
+                      <th>date</th>
                       
                       
                     </tr>
                   </thead>
                   <tbody class="table-border-bottom-0">
-                  <?php $query=mysqli_query($link,"select * from bookings ");
+                  <?php 
+                  $username=$_SESSION['username'];
+                  $man= mysqli_query($link,"select company from managers where username='$username'");
+                  $run=mysqli_fetch_assoc($man);
+                  $company=$run['company'];
+                  $query=mysqli_query($link,"select * from bookings where company='$company'");
                         while($row=mysqli_fetch_array($query))
                         {
                           ?> 
@@ -250,6 +256,7 @@ session_start();
                       <td><?php echo ($row['route']);?></td>
                       <td><?php echo ($row['amount']);?></td>
                       <td><?php echo ($row['seat']);?></td>
+                      <td><?php echo ($row['date']);?></td>
                       <!-- <td>
                       <a href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
                             </a>

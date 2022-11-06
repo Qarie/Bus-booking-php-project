@@ -19,7 +19,7 @@ include'config.php';
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
-
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -86,13 +86,14 @@ include'config.php';
               <div data-i18n="Analytics">Dashboard</div>
             </a>
           </li>
-
           <li class="menu-item">
             <a href="add_employees.php" class="menu-link">
-              <i class="fa-solid fa-user" style="color:blue;" ></i>
-              <div data-i18n="Tables">Add Employees</div>
+              <i class="fa fa-user"  ></i>
+              <div data-i18n="Tables" style="padding-left: 20px;">Add Employee</div>
             </a>
           </li>
+
+
           <!-- Forms & Tables -->
           <!-- <li class="menu-item">
             <a href="passangers.php" class="menu-link">
@@ -101,43 +102,35 @@ include'config.php';
             
           </a>
           </li> -->
-
-
           
           <li class="menu-item">
             <a href="drivers.php" class="menu-link">
-              <i class="fa-solid fa-user" style="color:blue;" ></i>
-              <div data-i18n="Tables">Drivers</div>
+              <i class="fa fa-user"  ></i>
+              <div data-i18n="Tables" style="padding-left: 20px;">Drivers</div>
             </a>
           </li>
           <li class="menu-item">
             <a href="Buses.php" class="menu-link">
-              <i class="fa-solid fa-user" style="color:blue;" ></i>
-              <div data-i18n="Tables">Buses</div>
+              <i class="fa fa-bus"  ></i>
+              <div data-i18n="Tables" style="padding-left: 20px;">Buses</div>
             </a>
           </li>
           <li class="menu-item">
             <a href="routem.php" class="menu-link">
-              <i class="fa-solid fa-user" style="color:blue;" ></i>
-              <div data-i18n="Tables">Route Managers</div>
+              <i class="fa fa-user"  ></i>
+              <div data-i18n="Tables" style="padding-left: 20px;">Route Managers</div>
             </a>
           </li>
           <li class="menu-item">
             <a href="routes.php" class="menu-link">
-              <i class="fa-solid fa-user" style="color:blue;" ></i>
-              <div data-i18n="Tables">Routes</div>
+              <i class="fa fa-road      "  ></i>
+              <div data-i18n="Tables" style="padding-left: 20px;">Routes</div>
             </a>
           </li>
-          <!-- <li class="menu-item">
-            <a href="tables-basic.html" class="menu-link">
-              <i class="fa-solid fa-user" style="color:blue;" ></i>
-              <div data-i18n="Tables">Payments</div>
-            </a>
-          </li> -->
           <li class="menu-item">
             <a href="bookings.php" class="menu-link">
-              <i class="fa-solid fa-edit" style="color:blue;" ></i>
-              <div data-i18n="Tables"><i class="fa fa-book" aria-hidden="true"></i>Bookings</div>
+              <i class="fa fa-book" ></i>
+              <div data-i18n="Tables" style="padding-left: 20px;"></i>Bookings</div>
             </a>
           </li>
           <!-- Forms -->

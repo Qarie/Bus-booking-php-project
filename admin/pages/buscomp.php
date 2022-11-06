@@ -93,35 +93,33 @@ session_start();
           <!-- Forms & Tables -->
           <!-- <li class="menu-item">
             <a href="passangers.php" class="menu-link">
-            <i class="fa-solid fa-user" style="color:blue;" ></i>
+            <i class="fa-solid fa-user"  ></i>
             <div data-i18n="Tables" >Passengers</div>
             
           </a>
           </li> -->
-
-
           <li class="menu-item">
             <a href="routem.php" class="menu-link">
-              <i class="fa-solid fa-user" style="color:blue;" ></i>
-              <div data-i18n="Tables">Managers</div>
+              <i class="fa fa-user"  ></i>
+              <div data-i18n="Tables" style="padding-left: 15px;">Managers</div>
             </a>
           </li>
           <li class="menu-item">
             <a href="drivers.php" class="menu-link">
-              <i class="fa-solid fa-user" style="color:blue;" ></i>
-              <div data-i18n="Tables">Drivers</div>
+              <i class="fa fa-user"  ></i>
+              <div data-i18n="Tables" style="padding-left: 15px;">Drivers</div>
             </a>
           </li>
           <li class="menu-item">
             <a href="buscomp.php" class="menu-link">
-              <i class=""></i>
-              <div data-i18n="Tables"><i class="fa fa-bus" aria-hidden="true"></i></> Bus Companies</div>
+              <i class="fa fa-bus"></i>
+              <div data-i18n="Tables" style="padding-left: 15px;">Bus Companies</div>
             </a>
           </li>
           <li class="menu-item">
             <a href="Buses.php" class="menu-link">
-              <i class="fa-solid fa-user" style="color:blue;" ></i>
-              <div data-i18n="Tables">Buses</div>
+              <i class="fa fa-user"  ></i>
+              <div data-i18n="Tables" style="padding-left: 15px;">Buses</div>
             </a>
           </li>
           <!-- <li class="menu-item">
@@ -132,8 +130,8 @@ session_start();
           </li> -->
           <li class="menu-item">
             <a href="bookings.php" class="menu-link">
-              <i class="fa-solid fa-edit" style="color:blue;" ></i>
-              <div data-i18n="Tables">Bookings</div>
+              <i class="fa fa-edit"  ></i>
+              <div data-i18n="Tables" style="padding-left: 15px;">Bookings</div>
             </a>
           </li>
           <!-- Forms -->

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 03, 2022 at 11:17 AM
+-- Generation Time: Nov 06, 2022 at 04:01 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -48,12 +48,35 @@ INSERT INTO `admin` (`id`, `username`, `password`) VALUES
 
 CREATE TABLE `bookings` (
   `id` int(225) NOT NULL,
-  `Customer` varchar(50) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `bus` varchar(20) NOT NULL,
   `route` varchar(50) NOT NULL,
-  `amount` int(225) NOT NULL,
+  `company` varchar(225) NOT NULL,
   `seat` varchar(50) NOT NULL,
-  `date` date NOT NULL
+  `date` date NOT NULL,
+  `amount` int(225) NOT NULL,
+  `phone` varchar(13) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `driver` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `bookings`
+--
+
+INSERT INTO `bookings` (`id`, `name`, `bus`, `route`, `company`, `seat`, `date`, `amount`, `phone`, `email`, `username`, `driver`) VALUES
+(1, 'karim', 'UBD 5678', 'Kampala-Mbarara', 'nile star', '13', '2022-10-23', 50000, '07845785534', 'k@gmail.com', 'karie', ''),
+(2, 'karim', 'UBJ 0710', 'kampala-Arua', 'link travels', '23', '2022-10-23', 60000, '07845785534', 'k@gmail.com', 'karie', 'karim'),
+(3, 'karim', 'UBJ 0710', 'kampala-Arua', 'link travels', '17', '2022-10-28', 60000, '07845785534', 'k@gmail.com', 'karie', ''),
+(4, 'karim', 'UBD 5678', 'kampala-Masaka', '', '62', '0000-00-00', 90000, '', '', '', ''),
+(5, 'karim', 'UBD 5678', 'Kampala-Mbarara', '', '28', '0000-00-00', 50000, '', '', '', ''),
+(6, 'karim', 'UBD 5678', 'Kampala-Mbarara', '', '48', '0000-00-00', 50000, '', '', '', ''),
+(7, 'karim', 'UBJ 0710', 'kampala-Arua', 'link travels', '5', '2022-10-28', 60000, '07845785534', 'k@gmail.com', 'karie', ''),
+(8, 'karim', 'UBJ 0710', 'kampala-Arua', 'link travels', '15', '2022-10-28', 60000, '07845785534', 'k@gmail.com', 'karie', ''),
+(9, 'karim', 'UBJ 0710', 'kampala-Arua', 'link travels', '16', '2022-10-28', 60000, '07845785534', 'k@gmail.com', 'karie', ''),
+(10, 'karim', 'UBJ 0710', 'kampala-Arua', 'link travels', '35', '2022-10-30', 60000, '07845785534', 'k@gmail.com', 'karie', ''),
+(11, '', 'UBD 5678', 'kampala-Masaka', 'nile star', '22', '2022-11-01', 90000, '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -67,22 +90,20 @@ CREATE TABLE `bus` (
   `plate` varchar(20) NOT NULL,
   `reg` int(225) NOT NULL,
   `driver` varchar(50) NOT NULL,
-  `seats` int(10) NOT NULL,
-  `company` varchar(40) NOT NULL
+  `company` varchar(40) NOT NULL,
+  `route` varchar(225) NOT NULL,
+  `amount` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `bus`
 --
 
-INSERT INTO `bus` (`id`, `name`, `plate`, `reg`, `driver`, `seats`, `company`) VALUES
-(3, 'toyota', 'UAF 5008', 214748677, 'cathy', 0, ''),
-(4, 'isuzu', 'UBD 5678', 2147483647, 'dan', 0, ''),
-(5, 'scania', 'UBD 5678', 2147483647, 'hassan', 67, ''),
-(6, 'scania', 'UBG 5678', 2147483647, 'karim', 67, ''),
-(7, 'scania', 'UAN 5678', 2147483647, 'kagimu', 67, ''),
-(9, 'AUDI', 'UBJ 0710', 2147483647, 'darren', 67, ''),
-(10, 'scania', 'UBJ 0710', 2147483647, 'daniel', 67, 'link travels');
+INSERT INTO `bus` (`id`, `name`, `plate`, `reg`, `driver`, `company`, `route`, `amount`) VALUES
+(3, 'toyota', 'UAF 5008', 214748677, 'cathy', 'link-travels', 'kampala-Hoima', 75000),
+(4, 'isuzu', 'UBD 5678', 2147483647, 'dan', 'nile star', 'Kampala-Mbarara', 50000),
+(10, 'scania', 'UBJ 0710', 2147483647, 'daniel', 'link travels', 'kampala-Arua', 60000),
+(25, 'scania', 'UBD 5678', 2147483647, 'darren', 'nile star', 'kampala-Masaka', 90000);
 
 -- --------------------------------------------------------
 
@@ -129,9 +150,11 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id`, `name`, `username`, `dob`, `gender`, `phone`, `email`, `password`) VALUES
-(4, 'karim', 'karie', '2222-02-22', '2', '07845785534', 'k@gmail.com', '@Karim1002'),
 (5, 'karim', 'laban', '2022-09-15', '2', '07845785537', 'laban@gmail.com', '@Queenma7'),
-(6, 'cathy', 'cathyrina', '2022-08-28', '3', '07845785534', 'laban@gmail.com', '@Queenma7');
+(6, 'cathy', 'cathyrina', '2022-08-28', '3', '07845785534', 'laban@gmail.com', '@Queenma7'),
+(7, 'daniel', 'karie', '2022-10-12', '3', '0784578553', 'kwags@gmail.com', '@Karim1002'),
+(8, 'darren', 'kajimu', '2022-09-28', '3', '0784578553', 'kajimus@gmail.com', '@Queenma7'),
+(9, 'Lugobe Abdulkarim', 'karieem', '2000-04-04', '2', '0784578553', 'diegdunk@gmail.com', '@Almusalamy256');
 
 -- --------------------------------------------------------
 
@@ -158,9 +181,7 @@ CREATE TABLE `employees` (
 INSERT INTO `employees` (`id`, `name`, `username`, `dob`, `gender`, `phone`, `email`, `role`, `password`) VALUES
 (1, 'daniel', 'dan', '2022-08-29', 'Male', '0784578553', 'k@gmail.com', 'Driver', '1234'),
 (2, 'karim', 'karie', '2022-09-15', 'male', '0784578553', 'k@gmail.com', 'Route Manager', '@Karim403455'),
-(3, 'daniel', 'dan', '2022-09-09', 'male', '0784578553', 'k@gmail.com', 'Route Manager', '@Karim403455'),
-(4, 'darren', 'daviddarren', '2022-09-21', 'male', '0760594051', 'darren@gmail.com', 'Driver', 'darrenD@3456'),
-(6, 'karim', 'karie', '2022-09-09', 'Male', '0784578553', 'k@gmail.com', 'Route Manager', '@Karim403455');
+(4, 'darren', 'daviddarren', '2022-09-21', 'male', '0760594051', 'darren@gmail.com', 'Driver', 'darrenD@3456');
 
 -- --------------------------------------------------------
 
@@ -232,11 +253,7 @@ CREATE TABLE `routes` (
 --
 
 INSERT INTO `routes` (`id`, `name`, `stations`, `route_manager`) VALUES
-(1, 'kampala-Arua', 10, 'kagimu'),
-(2, 'Kampala-Gulu', 15, 'karim'),
-(3, 'kampala-Masaka', 7, 'cathy'),
-(4, 'kampala-Mbarara', 15, 'karim'),
-(5, 'kampala-Hoima', 10, 'daniel');
+(5, 'kampala-Arua', 10, 'karim');
 
 --
 -- Indexes for dumped tables
@@ -310,13 +327,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `id` int(225) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(225) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `bus`
 --
 ALTER TABLE `bus`
-  MODIFY `id` int(225) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(225) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `company`
@@ -328,7 +345,7 @@ ALTER TABLE `company`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(225) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(225) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `employees`

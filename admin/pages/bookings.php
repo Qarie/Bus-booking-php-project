@@ -1,17 +1,15 @@
 <?php
 // Initialize the session
 session_start();
- 
+include "config.php";
 
 ?>
 <!DOCTYPE html>
-<html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="../assets/"
-  data-template="vertical-menu-template-free">
+<html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="../assets/" data-template="vertical-menu-template-free">
 
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
   <title>Admin Dashboard</title>
 
@@ -23,9 +21,7 @@ session_start();
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
 
   <!-- Icons. Uncomment required icon fonts -->
   <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
@@ -42,7 +38,7 @@ session_start();
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"> -->
 
   <!-- Page CSS -->
-
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <!-- Helpers -->
   <script src="../assets/vendor/js/helpers.js"></script>
   <script src="https://kit.fontawesome.com/1c867941a3.js" crossorigin="anonymous"></script>
@@ -91,33 +87,33 @@ session_start();
           <!-- Forms & Tables -->
           <!-- <li class="menu-item">
             <a href="passangers.php" class="menu-link">
-            <i class="fa-solid fa-user" style="color:blue;" ></i>
+            <i class="fa-solid fa-user"  ></i>
             <div data-i18n="Tables" >Passengers</div>
             
           </a>
           </li> -->
           <li class="menu-item">
             <a href="routem.php" class="menu-link">
-              <i class="fa-solid fa-user" style="color:blue;" ></i>
-              <div data-i18n="Tables">Managers</div>
+              <i class="fa fa-user"></i>
+              <div data-i18n="Tables" style="padding-left: 15px;">Managers</div>
             </a>
           </li>
           <li class="menu-item">
             <a href="drivers.php" class="menu-link">
-              <i class="fa-solid fa-user" style="color:blue;" ></i>
-              <div data-i18n="Tables">Drivers</div>
+              <i class="fa fa-user"></i>
+              <div data-i18n="Tables" style="padding-left: 15px;">Drivers</div>
             </a>
           </li>
           <li class="menu-item">
             <a href="buscomp.php" class="menu-link">
-              <i class=""></i>
-              <div data-i18n="Tables">Bus Companies</div>
+              <i class="fa fa-bus"></i>
+              <div data-i18n="Tables" style="padding-left: 15px;">Bus Companies</div>
             </a>
           </li>
           <li class="menu-item">
             <a href="Buses.php" class="menu-link">
-              <i class="fa-solid fa-user" style="color:blue;" ></i>
-              <div data-i18n="Tables">Buses</div>
+              <i class="fa fa-user"></i>
+              <div data-i18n="Tables" style="padding-left: 15px;">Buses</div>
             </a>
           </li>
           <!-- <li class="menu-item">
@@ -128,8 +124,8 @@ session_start();
           </li> -->
           <li class="menu-item">
             <a href="bookings.php" class="menu-link">
-              <i class="fa-solid fa-edit" style="color:blue;" ></i>
-              <div data-i18n="Tables">Bookings</div>
+              <i class="fa fa-edit"></i>
+              <div data-i18n="Tables" style="padding-left: 15px;">Bookings</div>
             </a>
           </li>
           <!-- Forms -->
@@ -143,9 +139,7 @@ session_start();
       <div class="layout-page">
         <!-- Navbar -->
 
-        <nav
-          class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
-          id="layout-navbar">
+        <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
           <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
             <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
               <i class="bx bx-menu bx-sm"></i>
@@ -157,8 +151,7 @@ session_start();
             <div class="navbar-nav align-items-center">
               <div class="nav-item d-flex align-items-center">
                 <i class="bx bx-search fs-4 lh-0"></i>
-                <input type="text" class="form-control border-0 shadow-none" placeholder="Search..."
-                  aria-label="Search..." />
+                <input type="text" class="form-control border-0 shadow-none" placeholder="Search..." aria-label="Search..." />
               </div>
             </div>
             <!-- /Search -->
@@ -178,15 +171,15 @@ session_start();
                   </div>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
-                  
-                  
+
+
                   <li>
                     <a class="dropdown-item" href="profile.php">
                       <i class="bx bx-user me-2"></i>
                       <span class="align-middle">My Profile</span>
                     </a>
                   </li>
-                  
+
                   <li>
                     <div class="dropdown-divider"></div>
                   </li>
@@ -214,7 +207,7 @@ session_start();
 
 
           <div class="container-xxl flex-grow-1 container-p-y">
-            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span> Bookings</h4>
+            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span> Bookings<button type="button" onclick="exportTableToCSV('bookings.csv')" class="btn btn-primary" style="padding-bottom: 5px; float:right;"><i class="fa fa-download" style=" padding:5px;"></i>Export to Csv</button></h4>
 
 
             <!-- Basic Bootstrap Table -->
@@ -225,36 +218,49 @@ session_start();
                         class="fas fa-plus"></i> Add Route Manager</span>
                   </button> </a>
               </div> -->
-              <div class="card-body mt-2 " >
+              <div class="card-body mt-2 ">
+
+                <br>
                 <table id="example1" class="table ">
                   <thead>
                     <tr>
-                      <th>First Name</th>
-                      <th>Last Name</th>
-                      <th>Gender</th>
-                      <th>Phone</th>
-                      <th>Bus plate</th>
-                      <th>From</th>
-                      <th>To</th>
-                      <th>Amount Paid</th>
-                      
+                      <th>Name</th>
+                      <th>bus</th>
+                      <th>route</th>
+                      <th>company</th>
+                      <th>seat</th>
+
+
                     </tr>
                   </thead>
                   <tbody class="table-border-bottom-0">
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
+                    <?php
+
+                    $query = mysqli_query($link, "select * from bookings");
+                    while ($row = mysqli_fetch_array($query)) {
+                    ?>
+                      <tr>
+                        <td><?php echo ($row['name']); ?></td>
+                        <td><?php echo ($row['bus']); ?></td>
+                        <td><?php echo ($row['route']); ?></td>
+                        <td><?php echo ($row['company']); ?></td>
+                        <td><?php echo ($row['seat']); ?></td>
+                        <!-- <td>
+                      <a href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
+                            </a>
+                            <a  href="javascript:void(0);"><i class="bx bx-trash me-1"></i>
+                              </a>
+
+                      </td> -->
+                      </tr>
+
+                    <?php
+                    } ?>
 
 
                   </tbody>
                 </table>
+
               </div>
             </div>
           </div> <!-- / B -->
@@ -361,7 +367,7 @@ session_start();
   <script src="../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 
   <script>
-    $(function () {
+    $(function() {
       $("#example1").DataTable({
         "responsive": true,
         "autoWidth": false,
@@ -377,6 +383,45 @@ session_start();
       });
     });
   </script>
+
+  <script>
+    //user-defined function to download CSV file  
+    function downloadCSV(csv, filename) {
+      var csvFile;
+      var downloadLink;
+
+      //define the file type to text/csv  
+      csvFile = new Blob([csv], {
+        type: 'text/csv'
+      });
+      downloadLink = document.createElement("a");
+      downloadLink.download = filename;
+      downloadLink.href = window.URL.createObjectURL(csvFile);
+      downloadLink.style.display = "none";
+
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+    }
+
+    //user-defined function to export the data to CSV file format  
+    function exportTableToCSV(filename) {
+      //declare a JavaScript variable of array type  
+      var csv = [];
+      var rows = document.querySelectorAll("table tr");
+
+      //merge the whole data in tabular form   
+      for (var i = 0; i < rows.length; i++) {
+        var row = [],
+          cols = rows[i].querySelectorAll("td, th");
+        for (var j = 0; j < cols.length; j++)
+          row.push(cols[j].innerText);
+        csv.push(row.join(","));
+      }
+      //call the function to download the CSV file  
+      downloadCSV(csv.join("\n"), filename);
+    }
+  </script>
+
 </body>
 
 </html>

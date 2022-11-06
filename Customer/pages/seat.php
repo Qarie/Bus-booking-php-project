@@ -13,6 +13,9 @@ include'config.php';
                 $run=mysqli_query($link,$get);
                 $row=mysqli_fetch_assoc($run);
                 $name = $row['name'];
+                $phone = $row['phone'];
+                $email = $row['email'];
+                $username = $row['username'];
                 $id=$_GET['id'];
                 $bus = "select * from bus where id = '$id' ";
                 $rus=mysqli_query($link,$bus);
@@ -21,16 +24,21 @@ include'config.php';
                 $plate=$ror['plate'];
                 $route=$ror['route'];
                 $amount=$ror['amount'];
+                $comp=$ror['company'];
                 
                 $booked_seat = $_POST["seatInput"];
                 // $amount = $_POST["bookAmount"];
                 // $dep_timing = $_POST["dep_timing"];
-                $sql="INSERT INTO bookings (name,bus,route,amount,seat)VALUES('$name','$plate','$route','$amount','$booked_seat')";
+                $sql="INSERT INTO bookings (name,bus,route,company,seat,date,amount,phone,email,username)VALUES('$name','$plate','$route','$comp','$booked_seat',current_timestamp(),'$amount','$phone','$email','$username')";
                 $query=mysqli_query($link,$sql);
                 if ($query==TRUE){
                   # code...
-                  
-                  header("Location:payment.php");
+                  // $book = "select id from bookings ";
+                  // $rex=mysqli_query($link,$book);
+                  // $rory=mysqli_fetch_assoc($rex);
+                  // $id=$rory['id'];
+                  // echo $seat;
+                  header("Location:payment.php?seat=$booked_seat");
                   
                 }
 
@@ -651,27 +659,64 @@ include'config.php';
                 <div data-i18n="Tables">Passengers</div>
               </a>
             </li> -->
-
-
+            <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <i class="menu-icon tf-icons bx bx-detail"></i>
+              <div data-i18n="Form Elements">Bus Companies</div>
+            </a>
+            <ul class="menu-sub">
+              <li class="menu-item">
+                <a href="buscomp.php" class="menu-link">
+                  <div data-i18n="Basic Inputs">Available</div>
+                </a>
+              </li>
+              <!-- <li class="menu-item">
+                <a href="buscomp.php" class="menu-link">
+                  <i class=""></i>
+                  <div data-i18n="Tables">Full</div>
+                </a>
+              </li> -->
+            </ul>
+          </li>
           <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <i class="menu-icon tf-icons bx bx-detail"></i>
+              <div data-i18n="Form Elements">Bookings</div>
+            </a>
+            <ul class="menu-sub">
+              <li class="menu-item">
+                <a href="bookings.php" class="menu-link">
+                  <div data-i18n="Basic Inputs">Previous Bookings</div>
+                </a>
+              </li>
+              <!-- <li class="menu-item">
+                <a href="buscomp.php" class="menu-link">
+                  <i class=""></i>
+                  <div data-i18n="Tables"></div>
+                </a>
+              </li> -->
+            </ul>
+          </li>
+          
+          <!-- <li class="menu-item">
             <a href="buscomp.php" class="menu-link">
               <i class=""></i>
-              <div data-i18n="Tables">Bus Companies</div>
+              <div data-i18n="Tables"><i class="fa fa-bus" aria-hidden="true"></i> </> Bus Companies</div>
             </a>
-          </li>
-
+          </li> -->
+          
           <!-- <li class="menu-item">
               <a href="tables-basic.html" class="menu-link">
                 <i class=""></i>
                 <div data-i18n="Tables">Payments</div>
               </a>
             </li> -->
-          <li class="menu-item">
+          <!-- <li class="menu-item">
             <a href="bookings.php" class="menu-link">
               <i class=""></i>
-              <div data-i18n="Tables">Bookings</div>
+              <div data-i18n="Tables"><i class="fa fa-book" aria-hidden="true"></i>  Bookings</div>
             </a>
-          </li>
+          </li> -->
           <!-- Forms -->
 
         </ul>
@@ -764,29 +809,37 @@ include'config.php';
                             <div class="mb-3">
                                 <table id="seatsDiagram">
                                 <tr>
+                                    <td id="seat-1" data-name="1">&nbsp;</td>
                                     <td id="seat-1" data-name="1">1</td>
-                                    <td id="seat-3" data-name="3">3</td>
+                                    <!-- <td id="seat-3" data-name="3">3</td> -->
                                     <td id="seat-5" data-name="5">5</td>
-                                    <td id="seat-7" data-name="7">7</td>
+                                    <!-- <td id="seat-7" data-name="7">7</td> -->
                                     <td id="seat-9" data-name="9">9</td>
-                                    <td id="seat-11" data-name="11">11</td>
+                                    <!-- <td id="seat-11" data-name="11">11</td> -->
                                     <td id="seat-13" data-name="13">13</td>
                                     <td id="seat-15" data-name="15">15</td>
                                     <td id="seat-17" data-name="17">17</td>
                                     <td id="seat-19" data-name="19">19</td>
+                                    <td id="seat-21" data-name="21">21</td>
+                                    <td id="seat-23" data-name="23">23</td>
+                                    <td id="seat-25" data-name="25">25</td>
                                 </tr>
                                 <tr>
                                     
+                                    <td class="space">&nbsp;</td>
                                     <td id="seat-2" data-name="2">2</td>
-                                    <td id="seat-4" data-name="4">4</td>
+                                    <!-- <td id="seat-4" data-name="4">4</td> -->
                                     <td id="seat-6" data-name="6">6</td>
-                                    <td id="seat-8" data-name="8">8</td>
+                                    <!-- <td id="seat-8" data-name="8">8</td> -->
                                     <td id="seat-10" data-name="10">10</td>
-                                    <td id="seat-12" data-name="12">12</td>
+                                    <!-- <td id="seat-12" data-name="12">12</td> -->
                                     <td id="seat-14" data-name="14">14</td>
                                     <td id="seat-16" data-name="16">16</td>
                                     <td id="seat-18" data-name="18">18</td>
                                     <td id="seat-20" data-name="20">20</td>
+                                    <td id="seat-22" data-name="22">22</td>
+                                    <td id="seat-24" data-name="24">24</td>
+                                    <td id="seat-26" data-name="26">26</td>
                                 </tr>
                                 <tr>
                                         <td class="space">&nbsp;</td>
@@ -801,10 +854,12 @@ include'config.php';
                                         <td class="space">&nbsp;</td>
                                 </tr>
                                 <tr>
-                                    <td id="seat-21" data-name="21">21</td>
-                                    <td id="seat-23" data-name="23">23</td>
-                                    <td id="seat-25" data-name="25">25</td>
-                                    <td id="seat-27" data-name="27">27</td>
+                                    <!-- <td id="seat-21" data-name="21">21</td> -->
+                                    <td class="space">&nbsp;</td>
+                                    <td id="seat-3" data-name="3">3</td>
+                                    <td id="seat-7" data-name="7">7</td>
+                                    <!-- <td id="seat-25" data-name="25">25</td> -->
+                                    <td id="seat-11" data-name="11">11</td>
                                     <td id="seat-29" data-name="29">29</td>
                                     <td id="seat-31" data-name="32">31</td>
                                     <td id="seat-33" data-name="33">33</td>
@@ -814,10 +869,12 @@ include'config.php';
                                     <td id="seat-39" data-name="39">39</td>
                                 </tr>
                                 <tr>
-                                    <td id="seat-22" data-name="22">22</td>
-                                    <td id="seat-24" data-name="24">24</td>
-                                    <td id="seat-26" data-name="26">26</td>
-                                    <td id="seat-28" data-name="28">28</td>
+                                    <!-- <td id="seat-22" data-name="22">22</td> -->
+                                    <td class="space">&nbsp;</td>
+                                    <td id="seat-4" data-name="4">4</td>
+                                    <td id="seat-8" data-name="8">8</td>
+                                    <!-- <td id="seat-26" data-name="26">26</td> -->
+                                    <td id="seat-12" data-name="12">12</td>
                                     <td id="seat-30" data-name="30">30</td>
                                     <td id="seat-32" data-name="32">32</td>
                                     <td id="seat-34" data-name="34">34</td>

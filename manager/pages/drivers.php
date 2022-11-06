@@ -92,13 +92,14 @@ include'config.php';
               <div data-i18n="Analytics">Dashboard</div>
             </a>
           </li>
-
           <li class="menu-item">
             <a href="add_employees.php" class="menu-link">
-              <i class="fa-solid fa-user" style="color:blue;" ></i>
-              <div data-i18n="Tables">Add Employees</div>
+              <i class="fa fa-user"  ></i>
+              <div data-i18n="Tables" style="padding-left: 20px;">Add Employee</div>
             </a>
           </li>
+
+
           <!-- Forms & Tables -->
           <!-- <li class="menu-item">
             <a href="passangers.php" class="menu-link">
@@ -107,46 +108,35 @@ include'config.php';
             
           </a>
           </li> -->
-          <!-- <li class="menu-item">
-            <a href="routem.php" class="menu-link">
-              <i class="fa-solid fa-user" style="color:blue;" ></i>
-              <div data-i18n="Tables">Route managers</div>
-            </a>
-          </li> -->
+          
           <li class="menu-item">
             <a href="drivers.php" class="menu-link">
-              <i class="fa-solid fa-user" style="color:blue;" ></i>
-              <div data-i18n="Tables">Drivers</div>
+              <i class="fa fa-user"  ></i>
+              <div data-i18n="Tables" style="padding-left: 20px;">Drivers</div>
             </a>
           </li>
           <li class="menu-item">
-            <a href="buses.php" class="menu-link">
-              <i class="fa-solid fa-user" style="color:blue;" ></i>
-              <div data-i18n="Tables">Buses</div>
+            <a href="Buses.php" class="menu-link">
+              <i class="fa fa-bus"  ></i>
+              <div data-i18n="Tables" style="padding-left: 20px;">Buses</div>
             </a>
           </li>
           <li class="menu-item">
             <a href="routem.php" class="menu-link">
-              <i class="fa-solid fa-user" style="color:blue;" ></i>
-              <div data-i18n="Tables">Route Managers</div>
+              <i class="fa fa-user"  ></i>
+              <div data-i18n="Tables" style="padding-left: 20px;">Route Managers</div>
             </a>
           </li>
           <li class="menu-item">
             <a href="routes.php" class="menu-link">
-              <i class="fa-solid fa-user" style="color:blue;" ></i>
-              <div data-i18n="Tables">Routes</div>
+              <i class="fa fa-road      "  ></i>
+              <div data-i18n="Tables" style="padding-left: 20px;">Routes</div>
             </a>
           </li>
-          <!-- <li class="menu-item">
-            <a href="tables-basic.html" class="menu-link">
-              <i class="fa-solid fa-user" style="color:blue;" ></i>
-              <div data-i18n="Tables">Payments</div>
-            </a>
-          </li> -->
           <li class="menu-item">
             <a href="bookings.php" class="menu-link">
-              <i class="fa-solid fa-edit" style="color:blue;" ></i>
-              <div data-i18n="Tables">Bookings</div>
+              <i class="fa fa-book" ></i>
+              <div data-i18n="Tables" style="padding-left: 20px;"></i>Bookings</div>
             </a>
           </li>
           <!-- Forms -->

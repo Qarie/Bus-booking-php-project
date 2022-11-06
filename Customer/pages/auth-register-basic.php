@@ -47,7 +47,7 @@ require_once "config.php";
       } else {
         $phone = test_input($_POST["phone"]);
         // check if phone number is well-formed
-        if (!preg_match("/^[0-9]{11}+$/",$phone)) {
+        if (!preg_match("/^[0-9]{10}+$/",$phone)) {
           $phoneErr = "Invalid phone number";
 
         }

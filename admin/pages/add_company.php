@@ -114,7 +114,7 @@ require_once "config.php";
 
   <!-- Icons. Uncomment required icon fonts -->
   <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
-
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <!-- Core CSS -->
   <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
   <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
@@ -176,35 +176,33 @@ require_once "config.php";
           <!-- Forms & Tables -->
           <!-- <li class="menu-item">
             <a href="passangers.php" class="menu-link">
-            <i class="fa-solid fa-user" style="color:blue;" ></i>
+            <i class="fa-solid fa-user"  ></i>
             <div data-i18n="Tables" >Passengers</div>
             
           </a>
           </li> -->
-
-
           <li class="menu-item">
             <a href="routem.php" class="menu-link">
-              <i class="fa-solid fa-user" style="color:blue;" ></i>
-              <div data-i18n="Tables">Route managers</div>
+              <i class="fa fa-user"  ></i>
+              <div data-i18n="Tables" style="padding-left: 15px;">Managers</div>
             </a>
           </li>
           <li class="menu-item">
             <a href="drivers.php" class="menu-link">
-              <i class="fa-solid fa-user" style="color:blue;" ></i>
-              <div data-i18n="Tables">Drivers</div>
+              <i class="fa fa-user"  ></i>
+              <div data-i18n="Tables" style="padding-left: 15px;">Drivers</div>
             </a>
           </li>
           <li class="menu-item">
             <a href="buscomp.php" class="menu-link">
-              <i class=""></i>
-              <div data-i18n="Tables">Bus Companies</div>
+              <i class="fa fa-bus"></i>
+              <div data-i18n="Tables" style="padding-left: 15px;">Bus Companies</div>
             </a>
           </li>
           <li class="menu-item">
             <a href="Buses.php" class="menu-link">
-              <i class="fa-solid fa-user" style="color:blue;" ></i>
-              <div data-i18n="Tables">Buses</div>
+              <i class="fa fa-user"  ></i>
+              <div data-i18n="Tables" style="padding-left: 15px;">Buses</div>
             </a>
           </li>
           <!-- <li class="menu-item">
@@ -215,8 +213,8 @@ require_once "config.php";
           </li> -->
           <li class="menu-item">
             <a href="bookings.php" class="menu-link">
-              <i class="fa-solid fa-edit" style="color:blue;" ></i>
-              <div data-i18n="Tables">Bookings</div>
+              <i class="fa fa-edit"  ></i>
+              <div data-i18n="Tables" style="padding-left: 15px;">Bookings</div>
             </a>
           </li>
           <!-- Forms -->
