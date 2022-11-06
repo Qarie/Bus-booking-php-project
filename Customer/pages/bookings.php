@@ -120,26 +120,6 @@ include'config.php';
             </ul>
           </li>
           <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-              <i class="menu-icon tf-icons bx bx-detail"></i>
-              <div data-i18n="Form Elements">Bookings</div>
-            </a>
-            <ul class="menu-sub">
-              <li class="menu-item">
-                <a href="bookings.php" class="menu-link">
-                  <div data-i18n="Basic Inputs">Previous Bookings</div>
-                </a>
-              </li>
-              <!-- <li class="menu-item">
-                <a href="buscomp.php" class="menu-link">
-                  <i class=""></i>
-                  <div data-i18n="Tables"></div>
-                </a>
-              </li> -->
-            </ul>
-          </li>
-          
-          <!-- <li class="menu-item">
             <a href="buscomp.php" class="menu-link">
               <i class=""></i>
               <div data-i18n="Tables"><i class="fa fa-bus" aria-hidden="true"></i> </> Bus Companies</div>
