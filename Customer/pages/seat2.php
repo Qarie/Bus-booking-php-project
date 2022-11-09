@@ -956,7 +956,7 @@ include'config.php';
                                 </div>
                                 <div class="col-auto">
                                     <span id="seatInfo" class="form-text">
-                                    Select from the above figure, Maximum 1 seat.
+                                    Select from the above Seats, Maximum 1 seat.
                                     </span>
                                 </div>
                             </div>
