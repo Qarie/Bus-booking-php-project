@@ -798,91 +798,219 @@ include'config.php';
 
         
         <div class="container">
-          <div class="card">
-            <div class="form">
+          <div style=" background-color:white; height: auto ;width: auto ;">
+            
               
-                  <div class="modal-body">
+                 
                         <form id="addBookingForm"  method="POST">
                            
                                 
                             <!-- Seats Diagram -->
                             <div class="mb-3">
                                 <table id="seatsDiagram">
-                                <tr>
-                                    <td id="seat-1" data-name="1">&nbsp;</td>
-                                    <td id="seat-1" data-name="1">1</td>
-                                    <!-- <td id="seat-3" data-name="3">3</td> -->
-                                    <td id="seat-5" data-name="5">5</td>
-                                    <!-- <td id="seat-7" data-name="7">7</td> -->
-                                    <td id="seat-9" data-name="9">9</td>
-                                    <!-- <td id="seat-11" data-name="11">11</td> -->
-                                    <td id="seat-13" data-name="13">13</td>
-                                    <td id="seat-15" data-name="15">15</td>
-                                    <td id="seat-17" data-name="17">17</td>
-                                    <td id="seat-19" data-name="19">19</td>
-                                    <td id="seat-21" data-name="21">21</td>
-                                    <td id="seat-23" data-name="23">23</td>
-                                    <td id="seat-25" data-name="25">25</td>
-                                </tr>
-                                <tr>
                                     
+                                <tr>
                                     <td class="space">&nbsp;</td>
+                                    <td class="space">&nbsp;</td>
+
+                                    <td id="seat-1" data-name="1">1</td>
                                     <td id="seat-2" data-name="2">2</td>
-                                    <!-- <td id="seat-4" data-name="4">4</td> -->
-                                    <td id="seat-6" data-name="6">6</td>
-                                    <!-- <td id="seat-8" data-name="8">8</td> -->
-                                    <td id="seat-10" data-name="10">10</td>
-                                    <!-- <td id="seat-12" data-name="12">12</td> -->
-                                    <td id="seat-14" data-name="14">14</td>
-                                    <td id="seat-16" data-name="16">16</td>
-                                    <td id="seat-18" data-name="18">18</td>
-                                    <td id="seat-20" data-name="20">20</td>
-                                    <td id="seat-22" data-name="22">22</td>
-                                    <td id="seat-24" data-name="24">24</td>
-                                    <td id="seat-26" data-name="26">26</td>
                                 </tr>
                                 <tr>
-                                        <td class="space">&nbsp;</td>
-                                        <td class="space">&nbsp;</td>
-                                        <td class="space">&nbsp;</td>
-                                        <td class="space">&nbsp;</td>
-                                        <td class="space">&nbsp;</td>
-                                        <td class="space">&nbsp;</td>
-                                        <td class="space">&nbsp;</td>
-                                        <td class="space">&nbsp;</td>
-                                        <td class="space">&nbsp;</td>
-                                        <td class="space">&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <!-- <td id="seat-21" data-name="21">21</td> -->
                                     <td class="space">&nbsp;</td>
+                                    <td class="space">&nbsp;</td>
+
+                                </tr>
+
+
+                                <tr>
+                                    <td class="space">&nbsp;</td>
+                                    <td class="space">&nbsp;</td>
+
                                     <td id="seat-3" data-name="3">3</td>
+                                    <td id="seat-4" data-name="4">4</td>
+
+                                    <td class="space">&nbsp;</td>
+                                    <td class="space">&nbsp;</td>
+
+                                    <td id="seat-5" data-name="5">5</td>
+                                    <td id="seat-6" data-name="6">6</td>
                                     <td id="seat-7" data-name="7">7</td>
-                                    <!-- <td id="seat-25" data-name="25">25</td> -->
+                                    
+
+                                </tr>
+
+                                <tr>
+                                    <td class="space">&nbsp;</td>
+                                    <td class="space">&nbsp;</td>
+
+                                    <td id="seat-8" data-name="8">8</td>
+                                    <td id="seat-9" data-name="9">9</td>
+
+                                    <td class="space">&nbsp;</td>
+                                    <td class="space">&nbsp;</td>
+
+                                    <td id="seat-10" data-name="10">10</td>
                                     <td id="seat-11" data-name="11">11</td>
-                                    <td id="seat-29" data-name="29">29</td>
-                                    <td id="seat-31" data-name="32">31</td>
+                                    <td id="seat-12" data-name="12">12</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="space">&nbsp;</td>
+                                    <td class="space">&nbsp;</td>
+
+                                    <td id="seat-13" data-name="13">13</td>
+                                    <td id="seat-14" data-name="14">14</td>
+
+                                    <td class="space">&nbsp;</td>
+                                    <td class="space">&nbsp;</td>
+
+                                    <td id="seat-15" data-name="15">15</td>
+                                    <td id="seat-16" data-name="16">16</td>
+                                    <td id="seat-17" data-name="17">17</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="space">&nbsp;</td>
+                                    <td class="space">&nbsp;</td>
+
+                                    <td id="seat-18" data-name="18">18</td>
+                                    <td id="seat-19" data-name="19">19</td>
+
+                                    <td class="space">&nbsp;</td>
+                                    <td class="space">&nbsp;</td>
+
+                                    <td id="seat-20" data-name="20">20</td>
+                                    <td id="seat-21" data-name="21">21</td>
+                                    <td id="seat-22" data-name="22">22</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="space">&nbsp;</td>
+                                    <td class="space">&nbsp;</td>
+
+                                    <td id="seat-23" data-name="23">23</td>
+                                    <td id="seat-24" data-name="24">24</td>
+
+                                    <td class="space">&nbsp;</td>
+                                    <td class="space">&nbsp;</td>
+
+                                    <td id="seat-25" data-name="25">25</td>
+                                    <td id="seat-26" data-name="26">26</td>
+                                    <td id="seat-27" data-name="27">27</td>
+
+                                    
+                                </tr>
+
+                                <tr>
+                                    <td class="space">&nbsp;</td>
+                                    <td class="space">&nbsp;</td>
+
+                                    <td id="seat-30" data-name="30">30</td>
+                                    <td id="seat-31" data-name="31">31</td>
+
+                                    <td class="space">&nbsp;</td>
+                                    <td class="space">&nbsp;</td>
+
+                                    <td id="seat-32" data-name="32">32</td>
                                     <td id="seat-33" data-name="33">33</td>
-                                    <!-- <td class="space">&nbsp;</td> -->
+                                    <td id="seat-34" data-name="34">34</td>
+
+                                    
+                                </tr>
+
+                                <tr>
+                                    <td class="space">&nbsp;</td>
+                                    <td class="space">&nbsp;</td>
+
                                     <td id="seat-35" data-name="35">35</td>
+                                    <td id="seat-36" data-name="36">36</td>
+
+                                    <td class="space">&nbsp;</td>
+                                    <td class="space">&nbsp;</td>
+
                                     <td id="seat-37" data-name="37">37</td>
+                                    <td id="seat-38" data-name="38">38</td>
                                     <td id="seat-39" data-name="39">39</td>
                                 </tr>
+
                                 <tr>
-                                    <!-- <td id="seat-22" data-name="22">22</td> -->
                                     <td class="space">&nbsp;</td>
-                                    <td id="seat-4" data-name="4">4</td>
-                                    <td id="seat-8" data-name="8">8</td>
-                                    <!-- <td id="seat-26" data-name="26">26</td> -->
-                                    <td id="seat-12" data-name="12">12</td>
-                                    <td id="seat-30" data-name="30">30</td>
-                                    <td id="seat-32" data-name="32">32</td>
-                                    <td id="seat-34" data-name="34">34</td>
-                                    <!-- <td class="space">&nbsp;</td> -->
-                                    <td id="seat-36" data-name="36">36</td>
-                                    <td id="seat-38" data-name="38">38</td>
+                                    <td class="space">&nbsp;</td>
+
                                     <td id="seat-40" data-name="40">40</td>
-                                    </tr>
+                                    <td id="seat-41" data-name="41">41</td>
+
+                                    <td class="space">&nbsp;</td>
+                                    <td class="space">&nbsp;</td>
+
+                                    <td id="seat-42" data-name="42">42</td>
+                                    <td id="seat-43" data-name="43">43</td>
+                                    <td id="seat-44" data-name="44">44</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="space">&nbsp;</td>
+                                    <td class="space">&nbsp;</td>
+
+                                    <td id="seat-45" data-name="45">45</td>
+                                    <td id="seat-46" data-name="46">46</td>
+
+                                    <td class="space">&nbsp;</td>
+                                    <td class="space">&nbsp;</td>
+
+                                    <td id="seat-47" data-name="47">47</td>
+                                    <td id="seat-48" data-name="48">48</td>
+                                    <td id="seat-49" data-name="49">49</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="space">&nbsp;</td>
+                                    <td class="space">&nbsp;</td>
+
+                                    <td id="seat-50" data-name="50">50</td>
+                                    <td id="seat-51" data-name="51">51</td>
+
+                                    <td class="space">&nbsp;</td>
+                                    <td class="space">&nbsp;</td>
+
+                                    <td id="seat-52" data-name="52">52</td>
+                                    <td id="seat-53" data-name="53">53</td>
+                                    <td id="seat-54" data-name="54">54</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="space">&nbsp;</td>
+                                    <td class="space">&nbsp;</td>
+
+                                    <td id="seat-55" data-name="55">55</td>
+                                    <td id="seat-56" data-name="56">56</td>
+
+                                    <td class="space">&nbsp;</td>
+                                    <td class="space">&nbsp;</td>
+
+                                    <td id="seat-57" data-name="57">57</td>
+                                    <td id="seat-58" data-name="58">58</td>
+                                    <td id="seat-59" data-name="59">59</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="space">&nbsp;</td>
+                                    <td class="space">&nbsp;</td>
+
+                                    <td id="seat-60" data-name="60">60</td>
+                                    <td id="seat-61" data-name="61">61</td>
+
+                                    <td id="seat-62" data-name="62">62</td>
+                                    <td id="seat-63" data-name="63">63</td>
+
+                                    
+                                    <td id="seat-64" data-name="64">64</td>
+                                    <td id="seat-65" data-name="65">65</td>
+                                    <td id="seat-66" data-name="66">66</td>
+                                </tr>
+    
+
                                 </table>
                             </div>
                             <div class="row g-3 align-items-center mb-3">
